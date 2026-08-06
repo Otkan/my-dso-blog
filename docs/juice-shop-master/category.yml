@@ -1,0 +1,5 @@
+label: Juice Shop Master
+position: 10
+link:
+  type: generated-index
+  description: Documentation of solved OWASP Juice Shop challenges.
