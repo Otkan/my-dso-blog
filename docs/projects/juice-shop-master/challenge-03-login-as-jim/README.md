@@ -21,9 +21,12 @@ instance running inside an isolated Kali Linux virtual machine for educational p
 - [Environment](#environment)
 - [Challenge Description](#challenge-description)
 - [Methodology](#methodology)
-- [Result](#result)
-- [Screenshots](#screenshots)
-- [Video Demonstration](#video-demonstration)
+- [Prerequisites](#prerequisites)
+- [Step 1 – Identify a Valid User](#step-1--identify-a-valid-user)
+- [Step 2 – Analyze the Login Request](#step-2--analyze-the-login-request)
+- [Step 3 – Test the Login Input](#step-3--test-the-login-input)
+- [Step 4 – Bypass Authentication](#step-4--bypass-authentication)
+- [Proof of Concept](#proof-of-concept)
 - [Security Impact](#security-impact)
 - [Mitigation](#mitigation)
 - [Conclusion](#conclusion)
@@ -87,28 +90,101 @@ The complete execution process is documented in the accompanying demonstration v
 
 ---
 
-## Result
+## Prerequisites
 
-The challenge was successfully completed by authenticating as the target user without using the legitimate password.
+Before starting the challenge, ensure that:
 
-This confirms that the application's authentication mechanism is vulnerable to **SQL Injection**, 
-allowing unauthorized access through manipulated input.
+- OWASP Juice Shop is running.
+- Burp Suite Community Edition is configured as the browser proxy.
+- Burp Browser is used.
+- Intercept is enabled.
 
 ---
 
-## Video Demonstration
+## Step 1 – Identify a Valid User
 
-**Video Link**
+Browse the application and locate a publicly visible user account.
 
-> *(Imagine video link here.)*
+Product reviews expose the reviewer's email address, which can be used as a valid login identifier.
 
-The accompanying video demonstrates:
+### Expected Result
 
-- Inspecting the login request with Burp Suite
-- Analyzing the authentication request
-- Demonstrating the vulnerable login mechanism
-- Successfully completing the challenge
-- Explaining the resulting security implications
+A valid user email address has been identified.
+
+> **Screenshot**
+
+![find_email_jim.png](../../../../static/img/find_email_jim.png)
+
+---
+
+## Step 2 – Analyze the Login Request
+
+Attempt to log in while Burp Suite is intercepting the request.
+
+Forward the request to **Burp Repeater** for further analysis.
+
+### Expected Result
+
+The complete HTTP login request is available for inspection inside Burp Repeater.
+
+> **Screenshot**
+
+![login_request_jim.png](../../../../static/img/login_request_jim.png)
+
+---
+
+## Step 3 – Test the Login Input
+
+Inspect how the supplied username is incorporated into the authentication request.
+
+The observed behavior indicates that user input is not properly sanitized before being processed by the backend SQL query, suggesting a potential SQL Injection vulnerability.
+
+### Expected Result
+
+The login request reveals that user-controlled input influences the backend query.
+
+> **Screenshot**
+
+![query_analysis_jim.png](../../../../static/img/query_analysis_jim.png)
+
+---
+
+## Step 4 – Bypass Authentication
+
+Open the login page and enter the previously identified email address into the **Email** field.
+
+Terminate the original SQL string by appending a single quotation mark (`'`) after the email address. Then use the SQL 
+comment operator (`--`) to ignore the remaining part of the original query, including the password comparison.
+
+The password field can contain any arbitrary value because the password verification is no longer evaluated by the database.
+
+Submit the modified login request.
+
+> **Screenshot**
+
+![injection_jim.png](../../../../static/img/injection_jim.png)
+
+
+### Expected Result
+
+The application grants access to the selected user account without requiring the correct password.
+
+> **Screenshot**
+
+![success_login_jim.png](../../../../static/img/success_login_jim.png)
+
+---
+
+## Proof of Concept
+
+The challenge is successfully completed when authentication is bypassed and the application logs in as the selected user without knowledge of the user's password.
+
+The successful authentication confirms that:
+
+- User input directly influences the backend SQL query.
+- Authentication logic can be manipulated.
+- Password verification is bypassed.
+- The OWASP Juice Shop challenge is marked as completed.
 
 ---
 

@@ -21,9 +21,13 @@ an isolated Kali Linux virtual machine for educational purposes only.
 - [Environment](#environment)
 - [Challenge Description](#challenge-description)
 - [Methodology](#methodology)
-- [Result](#result)
-- [Screenshots](#screenshots)
-- [Video Demonstration](#video-demonstration)
+- [Prerequisites](#prerequisites)
+- [Step 1 – Open the Shopping Basket](#step-1--open-the-shopping-basket)
+- [Step 2 – Intercept the Request](#step-2--intercept-the-request)
+- [Step 3 – Analyze the Request](#step-3--analyze-the-request)
+- [Step 4 – Modify the Basket Identifier](#step-4--modify-the-basket-identifier)
+- [Step 5 – Verify the Result](#step-5--verify-the-result)
+- [Proof of Concept](#proof-of-concept)
 - [Security Impact](#security-impact)
 - [Mitigation](#mitigation)
 - [Conclusion](#conclusion)
@@ -91,28 +95,109 @@ The complete execution process is documented in the accompanying demonstration v
 
 ---
 
-## Result
+## Prerequisites
 
-The challenge was successfully completed by retrieving the contents of another user's shopping basket.
+Before starting the challenge, ensure that:
 
-The returned JSON response confirmed that the application exposes user-specific data without properly validating resource
-ownership, demonstrating a **Broken Access Control** vulnerability.
+- OWASP Juice Shop is running.
+- Burp Suite Community Edition is configured as the browser proxy.
+- Burp Browser is used for all requests.
+- A user account is logged in.
 
 ---
 
-## Video Demonstration
+## Step 1 – Open the Shopping Basket
 
-**Video Link**
+Open OWASP Juice Shop in the Burp Browser and log in with any valid user account.
 
-> *(Imagine video link here.)*
+After logging in, open the **Shopping Basket** page.
 
-The accompanying video demonstrates:
+Enable **Intercept** in Burp Suite before opening the basket.
 
-- Intercepting the basket request with Burp Suite
-- Analyzing the request using Burp Repeater
-- Modifying the basket identifier
-- Successfully retrieving another user's basket
-- Explaining the resulting security implications
+### Expected Result
+
+Burp Suite should intercept the HTTP request responsible for retrieving the shopping basket.
+
+> **Screenshot**
+>![burp_request_basket.png](../../../../static/img/burp_request_basket.png)
+
+---
+
+## Step 2 – Intercept the Request
+
+Locate the intercepted basket request.
+
+Forward the request to **Burp Repeater** for further analysis.
+
+### Expected Result
+
+The request is now available inside the Repeater tab where it can be modified without affecting the browser session.
+
+> **Screenshot**
+>
+> ![repeater_basket.png](../../../../static/img/repeater_basket.png)
+
+---
+
+## Step 3 – Analyze the Request
+
+Inspect the request URL.
+
+The basket endpoint contains a numeric basket identifier.
+
+Example:
+
+```text
+GET /rest/basket/6
+```
+
+The numeric value identifies the requested shopping basket.
+
+> **Screenshot**
+>
+> ![request_basket.png](../../../../static/img/request_basket.png)
+
+---
+
+## Step 4 – Modify the Basket Identifier
+
+Replace the basket identifier with another valid identifier.
+
+Send the modified request using Burp Repeater.
+
+### Expected Result
+
+The server processes the modified request and returns the contents of the referenced basket.
+
+> **Screenshot**
+>
+> ![response_basket.png](../../../../static/img/response_basket.png)
+
+---
+
+## Step 5 – Verify the Result
+
+Inspect the server response.
+
+If the application returns basket information belonging to another user, the challenge has been successfully reproduced.
+
+The response is returned as a JSON object containing the basket contents.
+
+---
+
+## Proof of Concept
+
+After sending the modified request, the server responds with the contents of the requested shopping basket.
+
+The response is returned as a JSON object containing product information, basket metadata and user-related data. Since the modified basket identifier belongs to another user, the application discloses information that should not be accessible to the currently authenticated user.
+
+This confirms that the backend does not perform sufficient object-level authorization checks before returning protected resources.
+
+### Expected Result
+
+- The HTTP response status is **200 OK**.
+- The response body contains basket data belonging to another user.
+- The OWASP Juice Shop challenge is marked as completed.
 
 ---
 

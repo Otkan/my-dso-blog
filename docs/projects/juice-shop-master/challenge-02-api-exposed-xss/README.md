@@ -21,9 +21,13 @@ isolated Kali Linux virtual machine for educational purposes only.
 - [Environment](#environment)
 - [Challenge Description](#challenge-description)
 - [Methodology](#methodology)
-- [Result](#result)
-- [Screenshots](#screenshots)
-- [Video Demonstration](#video-demonstration)
+- [Prerequisites](#prerequisites)
+- [Step 1 – Intercept the API Request](#step-1--intercept-the-api-request)
+- [Step 2 – Send the Request to Burp Repeater](#step-2--send-the-request-to-burp-repeater)
+- [Step 3 – Modify the Request](#step-3--modify-the-request)
+- [Step 4 – Send the Modified Request](#step-4--send-the-modified-request)
+- [Step 5 – Trigger the Stored XSS](#step-5--trigger-the-stored-xss)
+- [Proof of Concept](#proof-of-concept)
 - [Security Impact](#security-impact)
 - [Mitigation](#mitigation)
 - [Conclusion](#conclusion)
@@ -94,29 +98,109 @@ The complete execution process is documented in the accompanying demonstration v
 
 ---
 
-## Result
+## Prerequisites
 
-The challenge was successfully completed by demonstrating that malicious JavaScript supplied through the API was stored 
-and later executed within the application.
+Before starting the challenge, ensure that:
 
-This confirms that the application is vulnerable to **Stored Cross-Site Scripting (Stored XSS)** due to insufficient 
-input validation and output encoding.
+- OWASP Juice Shop is running.
+- Burp Suite Community Edition is configured as the browser proxy.
+- Burp Browser is used.
+- Intercept is enabled.
 
 ---
 
-## Video Demonstration
+## Step 1 – Intercept the API Request
 
-**Video Link**
+Open the vulnerable functionality inside OWASP Juice Shop.
 
-> *(Imagine video link here.)*
+Enable **Intercept** in Burp Suite and perform the action that creates the API request.
 
-The accompanying video demonstrates:
+### Expected Result
 
-- Intercepting API requests using Burp Suite
-- Inspecting the request within Burp Repeater
-- Demonstrating the vulnerable API endpoint
-- Executing a harmless JavaScript proof of concept
-- Explaining the resulting security implications
+Burp Suite intercepts the API request before it reaches the server.
+
+> **Screenshot**
+
+![burp_request_xss.png](../../../../static/img/burp_request_xss.png)
+
+---
+
+## Step 2 – Send the Request to Burp Repeater
+
+Forward the intercepted request to **Burp Repeater**.
+
+The request can now be modified without repeating the action inside the browser.
+
+### Expected Result
+
+The request is available inside the Repeater tab.
+
+> **Screenshot**
+
+![repeater_xss.png](../../../../static/img/repeater_xss.png)
+
+---
+
+## Step 3 – Modify the Request
+
+Inspect the JSON request body.
+
+Adjust the request so that the application accepts a new product description containing a harmless JavaScript payload.
+
+For demonstration purposes, only a simple JavaScript alert dialog was used.
+
+### Expected Result
+
+The modified request now contains the XSS payload inside the JSON body.
+
+> **Screenshot**
+
+![change_request_xss.png](../../../../static/img/change_request_xss.png)
+
+---
+
+## Step 4 – Send the Modified Request
+
+Send the modified request from Burp Repeater.
+
+The application stores the supplied data.
+
+### Expected Result
+
+The server returns a successful HTTP response indicating that the request was processed successfully.
+
+> **Screenshot**
+
+![response_xss.png](../../../../static/img/response_xss.png)
+
+---
+
+## Step 5 – Trigger the Stored XSS
+
+Navigate to the page displaying the manipulated content.
+
+When the application renders the stored data, the injected JavaScript is executed.
+
+### Expected Result
+
+The browser displays the JavaScript alert dialog, confirming successful execution of the stored payload.
+
+> **Screenshot**
+
+![alertbox_xss.png](../../../../static/img/alertbox_xss.png)
+
+---
+
+## Proof of Concept
+
+The challenge is successfully completed when the injected JavaScript is executed after the manipulated content is displayed.
+
+The successful execution confirms that:
+
+- User-controlled input was stored by the backend.
+- The stored data was rendered without proper output encoding.
+- Arbitrary JavaScript executed inside the browser.
+- The OWASP Juice Shop challenge is marked as completed.
 
 ---
 

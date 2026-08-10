@@ -27,7 +27,7 @@ controlled environment, and discuss appropriate mitigation strategies.
 Clone the repository
 
 ```bash
-git clone https://github.com/Otkan/my-dso-blog.git
+git clone git@github.com:Otkan/my-dso-blog.git
 ```
 
 Install the project dependencies
@@ -45,7 +45,7 @@ npm run start
 Open your browser and navigate to:
 
 ```
-http://localhost:3000
+http://<your_ip>:3000
 ```
 
 ---
@@ -58,12 +58,3 @@ http://localhost:3000
 | API-only XSS               | **Injection (Stored XSS)** | [API-only XSS](./challenge-02-api-exposed-xss/) |
 | Login as Jim               | **Injection (SQL Injection)** | [Login as Jim](./challenge-03-login-as-jim/)                  |
 
----
-
-## Videos
-
-| Challenge | Video                  |
-|-----------|------------------------|
-| View Another User's Basket | *(Imagine video link)* |
-| API-only XSS | *(Imagine video link)* |
-| Login as Jim | *(Imagine video link)* |
