@@ -1,0 +1,32 @@
+.portfolio {
+  font-family: var(--ifm-font-family-base);
+  background: #252f36;
+  min-height: 100vh;
+}
+
+.portfolio * {
+  box-sizing: border-box;
+}
+
+.portfolio h1,
+.portfolio h2,
+.portfolio h3,
+.portfolio p {
+  color: inherit;
+}
+
+.portfolio :global(a) {
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.portfolio :global(a:hover) {
+  opacity: 0.82;
+}
+
+@media (max-width: 700px) {
+  .portfolio {
+    overflow-x: hidden;
+  }
+}
