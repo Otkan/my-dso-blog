@@ -3,9 +3,29 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-import type {Project} from '../../data/portfolio';
+import type {Project, ProjectSkill} from '../../data/portfolio';
 
 import styles from './styles.module.css';
+
+type SkillBadgeProps = {
+  skill: ProjectSkill;
+};
+
+function SkillBadge({skill}: SkillBadgeProps) {
+  const iconUrl = useBaseUrl(skill.icon);
+
+  return (
+    <span>
+      <img
+        src={iconUrl}
+        alt=""
+        aria-hidden="true"
+      />
+
+      {skill.label}
+    </span>
+  );
+}
 
 export default function ProjectCard({
   project,
@@ -20,21 +40,12 @@ export default function ProjectCard({
         <h3>{project.title}</h3>
 
         <div className={styles.badges}>
-          {project.skills.map((skill) => {
-            const iconUrl = useBaseUrl(skill.icon);
-
-            return (
-              <span key={skill.label}>
-                <img
-                  src={iconUrl}
-                  alt=""
-                  aria-hidden="true"
-                />
-
-                {skill.label}
-              </span>
-            );
-          })}
+          {project.skills.map((skill) => (
+            <SkillBadge
+              key={skill.label}
+              skill={skill}
+            />
+          ))}
         </div>
       </div>
 

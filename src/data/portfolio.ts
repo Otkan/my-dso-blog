@@ -130,12 +130,8 @@ export const projects: Project[] = [
         icon: '/img/portfolio/skills/security.svg',
       },
       {
-        label: 'Shell scripting',
-        icon: '/img/portfolio/skills/shell.svg',
-      },
-      {
-        label: 'Container',
-        icon: '/img/portfolio/skills/docker.svg',
+        label: 'Python',
+        icon: '/img/portfolio/skills/python.svg',
       },
     ],
 
@@ -146,18 +142,14 @@ export const projects: Project[] = [
       '/docs/projects/juice-shop-master/',
 
     github:
-      'https://github.com/Otkan/my-dso-blog',
+      'https://github.com/juice-shop/juice-shop',
   },
 
   {
     title: 'V-Server Setup',
-    image: '/img/portfolio/vserver.jpg',
+    image: '/img/portfolio/vserver.png',
 
     skills: [
-      {
-        label: 'YAML',
-        icon: '/img/portfolio/skills/yaml.svg',
-      },
       {
         label: 'Shell scripting',
         icon: '/img/portfolio/skills/shell.svg',
@@ -175,35 +167,88 @@ export const projects: Project[] = [
       '/docs/projects/vserver-setup',
 
     github:
-      'https://github.com/Otkan/my-dso-blog',
+      'https://github.com/Otkan/v-server-setup',
   },
 
   {
-    title: 'Docusaurus Portfolio',
-    image: '/img/portfolio/docusaurus.jpg',
+    title: 'Minecraft Server',
+    image: '/img/portfolio/minecraft.png',
 
     skills: [
       {
-        label: 'HTML',
-        icon: '/img/portfolio/skills/html.svg',
+        label: 'Docker',
+        icon: '/img/portfolio/skills/github-actions.svg',
       },
       {
-        label: 'CSS',
-        icon: '/img/portfolio/skills/css.svg',
+        label: 'Shell Scripting',
+        icon: '/img/portfolio/skills/shell.svg',
       },
       {
-        label: 'CI/CD',
+        label: 'YAML',
+        icon: '/img/portfolio/skills/yaml.svg',
+      },
+    ],
+
+    description:
+    'A self-hosted Minecraft Java server built with Docker and Docker Compose, including persistent world storage, ' +
+    'configurable environment variables, automatic container restarts and Python-based availability testing.',
+
+    documentation:
+      '/docs/projects/minecraft-server',
+
+    github:
+      'https://github.com/Otkan/Minecraft-Server',
+  },
+
+  {
+    title: 'Baby Tools World',
+    image: '/img/portfolio/baby-tools-world.png',
+
+    skills: [
+      {
+        label: 'Python',
+        icon: '/img/portfolio/skills/Python.svg',
+      },
+      {
+        label: 'Docker',
         icon: '/img/portfolio/skills/github-actions.svg',
       },
     ],
 
     description:
-      'A responsive portfolio integrated into the existing Docusaurus documentation project and implemented from the provided Figma design.',
+    'A modular Django e-commerce application with product management, authentication, environment-based configuration, ' +
+    'automated testing and Docker-based deployment.',
 
     documentation:
-      '/docs/projects/overview',
+      '/docs/projects/baby-tools-world',
 
     github:
-      'https://github.com/Otkan/my-dso-blog',
+      'https://github.com/Otkan/baby-tools-world',
+  },
+
+  {
+    title: 'Truck Signs Api',
+    image: '/img/truck-signs-api/Truck_Signs_logo.png',
+
+    skills: [
+      {
+        label: 'Shell Scripting',
+        icon: '/img/portfolio/skills/shell.svg',
+      },
+      {
+        label: 'Docker',
+        icon: '/img/portfolio/skills/github-actions.svg',
+      },
+    ],
+
+    description:
+    'A Django REST Framework backend for an online truck-sign store, featuring product customization, PostgreSQL integration,' +
+    ' environment-based configuration and containerized deployment with Docker.',
+
+    documentation:
+      '/docs/projects/truck-signs-api',
+
+    github:
+      'https://github.com/Otkan/truck-signs-api',
   },
 ];
