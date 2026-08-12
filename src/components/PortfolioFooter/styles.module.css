@@ -1,0 +1,26 @@
+.footer {
+  background: #252f36;
+  color: #cdd5da;
+
+  text-align: center;
+  padding: 0 20px 34px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  font-size: 12px;
+}
+
+.footer a {
+  color: #cdd5da !important;
+}
+
+
+/* Mobile */
+@media (max-width: 700px) {
+  .footer {
+    font-size: 9px;
+    padding-bottom: 18px;
+  }
+}
