@@ -1,0 +1,173 @@
+.card {
+  position: relative;
+  background: #31404b;
+  border-radius: 22px;
+  min-height: 164px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.iconArea {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 18px;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.icon {
+  width: 62px;
+  height: 62px;
+
+  object-fit: contain;
+}
+
+.skillName {
+  font-size: 14px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.details {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 28px;
+
+  background: #5f86b5;
+
+  opacity: 0;
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.details h3 {
+  font-size: 20px;
+  margin: 0 0 18px;
+  font-weight: 400;
+}
+
+.details ul {
+  margin: 0;
+  padding-left: 20px;
+
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.card:hover .iconArea {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.card:hover .details {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*
+ * MOBILE
+ */
+@media (max-width: 700px) {
+  .card {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 74px 1fr;
+
+    align-items: center;
+
+    width: 100%;
+    min-height: 0;
+
+    padding: 10px 6px;
+
+    border-radius: 0;
+
+    background: transparent;
+
+    overflow: visible;
+  }
+
+  .iconArea {
+    position: relative;
+    inset: auto;
+
+    min-height: 0;
+
+    background: transparent;
+
+    padding: 0;
+
+    gap: 4px;
+
+    justify-content: center;
+  }
+
+  .icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .skillName {
+    font-size: 12px;
+    line-height: 1.05;
+  }
+
+  .details {
+    position: relative;
+    inset: auto;
+
+    opacity: 1;
+    transform: none;
+
+    min-height: 0;
+
+    margin: 0;
+
+    padding: 0 0 0 8px;
+
+    background: transparent;
+
+    border-radius: 0;
+  }
+
+  .details h3 {
+    display: none;
+  }
+
+  .details ul {
+    margin: 0;
+    padding-left: 16px;
+
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .card:hover .iconArea {
+    opacity: 1;
+    transform: none;
+  }
+
+  .card:hover .details {
+    opacity: 1;
+    transform: none;
+  }
+}
