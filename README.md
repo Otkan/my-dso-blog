@@ -12,6 +12,8 @@ This repository hosts a developer blog built with Docusaurus. It includes tools 
   - [Repository Description](#repository-description)
   - [Table of Contents](#table-of-contents)
   - [Quickstart](#quickstart)
+  - [How to Start](#how-to-start)
+  - [Usage](#usage)
     - [Prerequisites](#prerequisites)
   - [Repository Structure](#repository-structure)
   - [Deployment](#deployment)
@@ -58,6 +60,45 @@ This repository hosts a developer blog built with Docusaurus. It includes tools 
    ```
 
 For detailed information about deploying this Docusaurus project, refer to the [Deployment](#deployment) section below.
+
+## How to Start
+
+After installing all required dependencies, the project can be started in development mode using:
+
+```bash
+pnpm start
+```
+
+This launches the Docusaurus development server with hot reloading enabled.
+
+Once the server is running, the website is available at:
+
+```
+http://localhost:3000
+```
+
+Any changes made to documentation, React components or styles are reflected immediately without restarting the development server.
+
+---
+
+## Usage
+
+This repository contains both the documentation created during the DevSecOps course and a custom portfolio page implemented with React and Docusaurus.
+
+The project can be customized in several ways:
+
+- Documentation pages are located in the `docs/` directory.
+- Portfolio data such as projects, skills and social links are managed in `src/data/portfolio.ts`.
+- React components used by the portfolio are stored in `src/components/`.
+- Static assets such as icons, screenshots and profile images are located in `static/img/`.
+
+To add a new portfolio project:
+
+1. Create a new documentation page inside `docs/projects/`.
+2. Add a preview image to `static/img/portfolio/`.
+3. Register the project inside `src/data/portfolio.ts`.
+
+After saving the changes, the development server automatically reloads the application.
 
 ## Repository Structure
 

@@ -10,22 +10,20 @@
 
 .inner {
   max-width: 1120px;
-
   margin: 0 auto;
-
   padding: 24px;
 
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .desktopNav {
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
   gap: 64px;
-
-  align-items: center;
 }
 
 .desktopNav a {
@@ -56,10 +54,12 @@
 @media (max-width: 700px) {
   .inner {
     padding: 16px 18px;
+    justify-content: flex-end;
   }
 
   .desktopNav {
     display: none;
+    justify-content: flex-end;
   }
 
   .menuButton {

@@ -46,6 +46,7 @@
   appearance: none;
 
   border: 0;
+
   background: transparent;
 
   color: #fff;
@@ -56,28 +57,31 @@
 
   cursor: pointer;
 
-  border-radius: 4px;
+  border-radius: 0;
 
   transition:
-    background-color 0.18s ease,
-    color 0.18s ease,
-    text-decoration-color 0.18s ease;
+    text-decoration-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .projectNavigation button:hover {
   text-decoration: underline;
 
+  text-decoration-color: #fff;
+
   text-underline-offset: 4px;
 
-  background: rgba(255, 255, 255, 0.08);
+  background: transparent;
 }
 
 .projectNavigation button.activeProject {
-  text-decoration: underline;
+  color: #000;
 
-  text-underline-offset: 4px;
+  font-weight: 400;
 
-  font-weight: 600;
+  text-decoration: none;
+
+  background: transparent;
 }
 
 .moreProjects {
