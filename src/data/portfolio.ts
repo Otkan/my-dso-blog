@@ -207,7 +207,7 @@ export const projects: Project[] = [
     skills: [
       {
         label: 'Python',
-        icon: '/img/portfolio/skills/Python.svg',
+        icon: '/img/portfolio/skills/python.svg',
       },
       {
         label: 'Docker',
