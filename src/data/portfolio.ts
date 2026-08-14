@@ -152,7 +152,7 @@ export const projects: Project[] = [
     skills: [
       {
         label: 'Shell scripting',
-        icon: '/img/portfolio/skills/shell.svg',
+        icon: '/img/portfolio/skills/shell-black.svg',
       },
       {
         label: 'IT Security',
@@ -177,15 +177,15 @@ export const projects: Project[] = [
     skills: [
       {
         label: 'Docker',
-        icon: '/img/portfolio/skills/github-actions.svg',
+        icon: '/img/portfolio/skills/docker.svg',
       },
       {
         label: 'Shell Scripting',
-        icon: '/img/portfolio/skills/shell.svg',
+        icon: '/img/portfolio/skills/shell-black.svg',
       },
       {
         label: 'YAML',
-        icon: '/img/portfolio/skills/yaml.svg',
+        icon: '/img/portfolio/skills/yaml-black.svg',
       },
     ],
 
@@ -211,7 +211,7 @@ export const projects: Project[] = [
       },
       {
         label: 'Docker',
-        icon: '/img/portfolio/skills/github-actions.svg',
+        icon: '/img/portfolio/skills/docker.svg',
       },
     ],
 
@@ -233,10 +233,10 @@ export const projects: Project[] = [
     skills: [
       {
         label: 'Shell Scripting',
-        icon: '/img/portfolio/skills/shell.svg',
+        icon: '/img/portfolio/skills/shell-black.svg',
       },
       {
-        label: 'Docker',
+        label: 'Github Actions',
         icon: '/img/portfolio/skills/github-actions.svg',
       },
     ],

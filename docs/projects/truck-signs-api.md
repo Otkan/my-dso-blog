@@ -1,7 +1,11 @@
+---
+title: Truck Signs API
+hide_title: true
+---
+
 <div align="center">
 
-# Signs for Trucks
-
+# Truck Signs Api
 ![Python version](https://img.shields.io/badge/Python-3.12.0-4c566a?logo=python&&longCache=true&logoColor=white&colorB=pink&style=flat-square&colorA=4c566a) ![Django version](https://img.shields.io/badge/Django-5.2.8-4c566a?logo=django&&longCache=truelogoColor=white&colorB=pink&style=flat-square&colorA=4c566a) ![Django-RestFramework](https://img.shields.io/badge/Django_Rest_Framework-3.16.1-red.svg?longCache=true&style=flat-square&logo=django&logoColor=white&colorA=4c566a&colorB=pink)
 
 ![Truck_Signs_logo.png](/img/truck-signs-api/Truck_Signs_logo.png)

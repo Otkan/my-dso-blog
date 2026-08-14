@@ -1,34 +1,58 @@
 # V-Server Setup
 
-<!--INSERT YOUR BRIEF DESCRIPTION HERE -->
-This page documents how I configured my very first cloud server instance in the Developer Akademie DevSecOps Course.
+## Table of Contents
 
-## TOC
-
-<!--INSERT YOUR TABLE OF CONTENTS HERE -->
+- [Description](#description)
+- [Quickstart](#quickstart)
+- [Configuration Steps](#configuration-steps)
+- [Security Measures](#security-measures)
 
 import GithubLinkAdmonition from '@site/src/components/GithubLinkAdmonition';
 
-<GithubLinkAdmonition 
-    link="https://github.com/spmse/dev-blog-template"
-    title="Github Tip" 
+<GithubLinkAdmonition
+    link="https://github.com/Otkan/v-server-setup"
+    title="GitHub Repository"
     type="tip"
 />
 
-## Quickstart
-
-1. Create a SSH key pair on your local machine
-2. Login via `ssh` using your username and designated password
-3. Add your public SSH-Keys to the V-Servers `authorized_keys` with the following command:
-   1. `ssh-copy-id -i $HOME/.ssh/your-public-key.pub <user>@123.4.5.255`
-4. Logout from Server, try logging in with the KEY information only -> `ssh -i <path/to/key> user@host`
-   1. You should not be prompted for a password if it works correctly
-5. Log in to the V-Server again
-6. Disable Password-Login
-7. Disable Root-Login
-
 ## Description
 
+This project documents the setup and hardening of my first Linux cloud server as part of the Developer Akademie DevSecOps course.
 
+The focus of the project was learning the fundamentals of secure server administration, including SSH authentication, disabling password-based logins, restricting root access and documenting the complete setup process.
 
-## Further References
+## Quickstart
+
+1. Create an SSH key pair on your local machine.
+2. Connect to the server using the credentials provided by the cloud provider.
+3. Copy your public key to the server:
+
+```bash
+ssh-copy-id -i ~/.ssh/id_ed25519.pub <user>@<server-ip>
+```
+
+4. Verify that SSH login via key authentication works.
+5. Disable password authentication.
+6. Disable direct root login.
+7. Test the configuration from a new terminal session.
+
+## Configuration Steps
+
+The documented setup includes:
+
+- SSH key authentication
+- Secure SSH configuration
+- Password authentication disabled
+- Root login disabled
+- Basic Linux server administration
+- Verification of the final configuration
+
+## Security Measures
+
+The following security improvements were implemented:
+
+- Public-key authentication
+- Disabled password login
+- Disabled root login
+- Reduced attack surface for SSH access
+

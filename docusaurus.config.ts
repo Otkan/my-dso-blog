@@ -74,18 +74,14 @@ const config: Config = {
 
 themeConfig: {
   image: 'img/docusaurus-social-card.jpg',
-  navbar: {
-    title: 'My Site',
-    logo: {
-      alt: 'My Site Logo',
-      src: 'img/logo.svg',
-    },
+navbar: {
+  title: 'My Site',
+  logo: {
+    alt: 'My Site Logo',
+    src: 'img/logo.svg',
+    href: '/',
+  },
     items: [
-      {
-        to: '/portfolio',
-        label: 'Portfolio',
-        position: 'left',
-      },
       {
         type: 'docSidebar',
         sidebarId: 'tutorialSidebar',

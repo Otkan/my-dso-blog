@@ -1,15 +1,50 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './styles.module.css';
 
 export default function PortfolioHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [headerVisible, setHeaderVisible] = useState(true);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (menuOpen) {
+        setHeaderVisible(true);
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      if (currentScrollY <= 20) {
+        setHeaderVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        setHeaderVisible(false);
+      } else {
+        setHeaderVisible(true);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, {passive: true});
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [menuOpen]);
 
   const closeMenu = () => {
     setMenuOpen(false);
   };
 
   return (
-    <header className={styles.header}>
+    <header
+      className={`${styles.header} ${
+        headerVisible ? styles.headerVisible : styles.headerHidden
+      }`}
+    >
       <div className={styles.inner}>
         <nav className={styles.desktopNav}>
           <a href="#about">About me</a>

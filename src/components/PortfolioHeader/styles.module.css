@@ -1,11 +1,25 @@
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
   width: 100%;
 
   z-index: 100;
+
+  transition: transform 0.25s ease;
+}
+
+.headerVisible {
+  transform: translateY(0);
+}
+
+.headerHidden {
+  transform: translateY(-100%);
+}
+
+.header {
+  background: #2f73de;
 }
 
 .inner {

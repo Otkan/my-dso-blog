@@ -52,7 +52,7 @@ export default function ProjectsSection() {
         </div>
 
         <div className={styles.mobileList}>
-          {projects.map((project) => (
+          {projects.slice(0, 3).map((project) => (
             <ProjectCard
               key={project.title}
               project={project}

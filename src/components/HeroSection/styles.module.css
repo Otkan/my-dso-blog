@@ -122,7 +122,7 @@
 
   .eyebrow {
     order: 0;
-    font-size: 14px;
+    font-size: 16px;
     margin: 0;
   }
 
@@ -153,7 +153,7 @@
 
   .intro {
     order: 4;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1.28;
     margin: 0;
   }
@@ -162,7 +162,7 @@
     order: 5;
     align-self: center;
 
-    font-size: 12px;
+    font-size: 16px;
     padding: 9px 15px;
   }
 }
