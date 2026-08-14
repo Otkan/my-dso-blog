@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 
 export default function PortfolioFooter() {
     return <footer className={styles.footer}>
-        <span>© {new Date().getFullYear()} Sven Patrick Meier (spmse). Built with Docusaurus and 💚</span>
+        <span>© {new Date().getFullYear()} Okan Uzal (otkan). Built with Docusaurus and 💚</span>
         <Link to="/legal-notice">
             Legal Notice
         </Link></footer>

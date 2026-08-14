@@ -120,18 +120,24 @@
     gap: 16px;
   }
 
-  .moreText {
-    font-size: 11px;
+.moreText {
+  font-size: 16px;
 
-    margin: 6px 2px 0;
-  }
+  text-align: center;
+
+  line-height: 1.5;
+
+  margin: 12px auto 0;
+
+  max-width: 320px;
+}
 
   .moreLink {
     align-self: center;
 
     color: #fff !important;
 
-    font-size: 12px;
+    font-size: 16px;
 
     text-underline-offset: 4px;
   }

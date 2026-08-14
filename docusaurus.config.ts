@@ -134,7 +134,7 @@ navbar: {
         ],
       },
     ],
-    copyright: `Copyright © ${new Date().getFullYear()} Sven Patrick Meier (spmse). Built with Docusaurus and 💚.`,
+    copyright: `Copyright © ${new Date().getFullYear()} Okan Uzal (otkan). Built with Docusaurus and 💚.`,
   },
     prism: {
       theme: prismThemes.github,
