@@ -40,7 +40,7 @@ export default function ProjectsSection() {
 
             <Link
               className={styles.moreProjects}
-              to="/docs/projects/overview"
+              to="/docs/category/projects"
             >
               ↳ see more projects
             </Link>
@@ -65,7 +65,7 @@ export default function ProjectsSection() {
 
           <Link
             className={styles.moreLink}
-            to="/docs/projects/overview"
+            to="/docs/category/projects"
           >
             ↳ see more projects
           </Link>

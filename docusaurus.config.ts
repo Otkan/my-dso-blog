@@ -103,7 +103,7 @@ navbar: {
         items: [
           {
             label: 'Tutorial',
-            to: '/docs/guides/intro',
+            to: '/docs/category/projects',
           },
         ],
       },
