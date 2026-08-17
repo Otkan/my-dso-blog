@@ -1,0 +1,112 @@
+.section {
+    background: #252f36;
+    color: #fff;
+    scroll-margin-top: 20px;
+}
+
+.inner {
+    max-width: 1120px;
+    margin: 0 auto;
+
+    padding: 66px 24px 72px;
+}
+
+.inner h2 {
+    font-size: 48px;
+    margin: 0 0 42px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 28px;
+}
+
+.mobileRail,
+.dots {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .inner {
+        padding: 30px 10px 28px;
+        overflow: hidden;
+    }
+
+    .inner h2 {
+        font-size: 28px;
+        margin: 0 0 20px;
+    }
+
+    .grid {
+        display: none;
+    }
+
+    .mobileRail {
+        display: flex;
+        gap: 16px;
+
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+
+        scrollbar-width: none;
+
+        padding-bottom: 10px;
+    }
+
+    .mobileRail::-webkit-scrollbar {
+        display: none;
+    }
+
+    .mobileSlide {
+        flex: 0 0 calc(100vw - 42px);
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 10px;
+
+        padding: 12px 8px;
+
+        background: #2d3d50;
+        border-radius: 18px;
+
+        scroll-snap-align: start;
+    }
+
+    .dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 7px;
+
+        margin-top: 8px;
+    }
+
+    .dots button {
+        width: 7px;
+        height: 7px;
+
+        padding: 0;
+
+        border: 0;
+        border-radius: 50%;
+
+        background: #758493;
+
+        cursor: pointer;
+
+        transition: width 0.2s ease,
+        background-color 0.2s ease;
+    }
+
+    .dots button.activeDot {
+        width: 17px;
+
+        border-radius: 8px;
+
+        background: #fff;
+    }
+}

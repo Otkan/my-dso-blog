@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+      - 'feature/**'
+
   pull_request:
     branches:
       - main
@@ -16,5 +18,6 @@ permissions:
 
 jobs:
   build-and-deploy-to-pages:
+    if: ${{ github.event_name == 'push' }}
     name: Build website and deploy to GitHub Pages
     uses: ./.github/workflows/deploy.yaml
